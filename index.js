@@ -1,8 +1,20 @@
 import menuArray from './data.js'
+import { CartItem, cart, addToCart } from './cart.js'
 
+document.addEventListener('DOMContentLoaded', () => {
+    renderMenu()
 
-function getMenuHtml() {
-    return menuArray.map(({ name, ingredients, price, emoji, id}) => {
+    document.querySelector('#menu-container').addEventListener('click', function(event) {
+        const target = event.target.closest('[data-id]')
+        if(target) {
+            addToCart(target.dataset.id, menuArray)
+        }
+    })
+})
+
+// MENU
+function renderMenu() {
+    const menuHtml = menuArray.map(({ name, ingredients, price, emoji, id}) => {
         return `
         <div class="menu-item">
             <span class="food-emoji">${emoji}</span>
@@ -18,6 +30,7 @@ function getMenuHtml() {
         `
         
     }).join('')
+
+    document.getElementById('menu-container').innerHTML = menuHtml
 }
 
-document.getElementById('menu-container').innerHTML = getMenuHtml()
