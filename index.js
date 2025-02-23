@@ -1,6 +1,8 @@
 import menuArray from './data.js'
 import { CartItem, cart, addToCart } from './cart.js'
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     renderMenu()
 
@@ -9,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(target) {
             addToCart(target.dataset.id, menuArray)
         }
+
     })
 })
 
@@ -33,4 +36,3 @@ function renderMenu() {
 
     document.getElementById('menu-container').innerHTML = menuHtml
 }
-

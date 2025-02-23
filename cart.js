@@ -1,3 +1,5 @@
+import { renderCart } from "./cartUI.js";
+
 class CartItem {
     constructor(id, name, price, emoji, quantity = 1) {
         this.id = id
@@ -9,6 +11,14 @@ class CartItem {
 
     increaseQuantity() {
         this.quantity++
+    }
+
+    decreaseQuantity() {
+        if(this.quantity > 1) {
+            this.quantity--;
+            return true;
+        }
+        return false;
     }
 
     getTotalPrice() {
@@ -38,8 +48,38 @@ function addToCart(itemId, menuArray) {
         }
 
         console.log(cart.map(item => item.toString()))
+        renderCart()
     }
 }
 
-export {CartItem, cart, addToCart}
+function removeFromCart(itemId, menuArray) {
+    const itemIndex = cart.findIndex(food => food.id === Number(itemId))
+
+    if(itemIndex !== -1) {
+        const item = cart[itemIndex]
+
+        if(!item.decreaseQuantity()) {
+            cart.splice(itemIndex, 1)
+        }
+    }
+
+    renderCart()
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cartContainer = document.getElementById('cart-container')
+
+    if(cartContainer) {
+        cartContainer.addEventListener('click', (event) => {
+            if(event.target.dataset.removeItem) {
+                const itemId = event.target.dataset.removeItem
+                removeFromCart(itemId)
+            }
+        })
+    }
+})
+
+
+
+export {CartItem, cart, addToCart, removeFromCart}
 
