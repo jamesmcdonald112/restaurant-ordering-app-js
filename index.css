@@ -1,6 +1,15 @@
+/* Global reset */
 body {
     margin: 0;
+    padding: 0;
+    line-height:1.2;
+    box-sizing: border-box;
+    font-family: 'Smythe', cursive, sans-serif;
 } 
+
+h1, h2, p {
+    margin: 0;
+}
 
 .page-wrapper {
     max-width: 600px;
@@ -21,7 +30,6 @@ body {
     display: flex;
     align-items: center;
     color: #FFFFFF;
-    font-family: 'Smythe', cursive;
     line-height: 24px;
 }
 
@@ -44,3 +52,69 @@ body {
 }
 
 /* MENU */
+
+.menu-section {
+    margin: 10px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border-bottom: solid 1px #D2D2D2;
+    height: 140px;
+    padding: 20px 0;
+}
+
+.food-emoji {
+    font-size: 80px;
+}
+
+.food-details {
+    margin-left: 20px;
+}
+
+.food-details h2 {
+    font-size: 28px;
+}
+
+.food-ingredients{
+    color: #8B8B8B;
+    font-size: 16px;
+}
+
+.food-price{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.add-button {
+    margin: 0 0 0 auto ;
+    border-radius: 90px;
+    height: 50px;
+    width: 50px;
+    color: #3C3C3C;
+    border: solid 1px #DEDEDE;
+    background-color: transparent;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.add-button:hover {
+    background-color: #F0F0F0;
+}
+
+.add-button:active {
+    transform: scale(0.95);
+}
+
+.add-button:focus {
+    outline: 2px solid #F0F0F0;
+    outline-offset: 2px;
+}
+
+/* Utility */
+button {
+    cursor: pointer;
+}
