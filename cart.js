@@ -52,7 +52,7 @@ function addToCart(itemId, menuArray) {
     }
 }
 
-function removeFromCart(itemId, menuArray) {
+function removeFromCart(itemId) {
     const itemIndex = cart.findIndex(food => food.id === Number(itemId))
 
     if(itemIndex !== -1) {
@@ -66,6 +66,10 @@ function removeFromCart(itemId, menuArray) {
     renderCart()
 }
 
+function completeOrderClick() {
+    console.log('complete payment click')
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const cartContainer = document.getElementById('cart-container')
 
@@ -74,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if(event.target.dataset.removeItem) {
                 const itemId = event.target.dataset.removeItem
                 removeFromCart(itemId)
+            } 
+            else if (event.target.id === 'payment-btn') {
+                completeOrderClick()
             }
         })
     }
