@@ -1,10 +1,11 @@
 import menuArray from './data.js'
 import { CartItem, cart, addToCart } from './cart.js'
-
+import {setUpModal} from './modal.js'
 
 
 document.addEventListener('DOMContentLoaded', () => {
     renderMenu()
+    setUpModal()
 
     document.querySelector('#menu-container').addEventListener('click', function(event) {
         const target = event.target.closest('[data-id]')

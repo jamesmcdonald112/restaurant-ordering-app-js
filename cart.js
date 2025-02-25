@@ -67,7 +67,16 @@ function removeFromCart(itemId) {
 }
 
 function completeOrderClick() {
-    console.log('complete payment click')
+    const modal = document.getElementById('payment-modal')
+
+    if(cart.length === 0) {
+        alert("Your cart is empty! Please add items before checkout.")
+        return
+    }
+
+    modal.classList.add('show')
+
+    console.log('Payment modal opened')
 }
 
 document.addEventListener('DOMContentLoaded', () => {
