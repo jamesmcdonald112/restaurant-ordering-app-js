@@ -3,7 +3,7 @@
 **Jimmy's Diner** is a simple and interactive food ordering web application that allows users to select items, apply discounts and  complete payments.
 
 ## Live Demo
-- Click here to view.
+- [Click here to view.](https://timely-ganache-343e11.netlify.app/)
 
 ## 📌 Features
 - Add and remove food/drink items from the cart
